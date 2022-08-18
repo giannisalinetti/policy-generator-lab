@@ -1,0 +1,21 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: config-data-policies
+placementBindingDefaults:
+  name: binding-config-data
+policyDefaults:
+  namespace: policies
+  remediationAction: enforce
+  placement:
+    name: placement-config-data
+    clusterSelectors:
+      vendor: "OpenShift"
+policies:
+  - name: config-data
+    manifests:
+      - path: configmap.yaml
+  - name: config-data2
+    manifests:
+      - path: configmap2.yaml
+

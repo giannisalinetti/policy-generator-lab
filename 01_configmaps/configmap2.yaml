@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-config2
+  namespace: default
+data:
+  game.properties: |
+    hero=mace-windu
+    weapon=lightsaber
+  ui.properties: |
+    color.bad=red
+

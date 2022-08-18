@@ -1,0 +1,18 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: image-registries
+placementBindingDefaults:
+  name: binding-image-registries
+policyDefaults:
+  namespace: policies
+  remediationAction: enforce
+  placement:
+    name: placement-image-registries
+    clusterSelectors:
+      vendor: "OpenShift"
+policies:
+  - name: policy-image-registries
+    manifests:
+      - path: images.yaml
+
