@@ -10,7 +10,7 @@ policyDefaults:
   placement:
     name: placement-image-registries
     clusterSelectors:
-      vendor: "OpenShift"
+      local-cluster: "true"
 policies:
   - name: policy-image-registries
     manifests:
