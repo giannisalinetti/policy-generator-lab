@@ -14,5 +14,5 @@ policyDefaults:
 policies:
   - name: install-openshift-gitops
     manifests:
-      - path: openshift-gitops-subscription.yaml
+      - path: manifests/openshift-gitops-subscription.yaml
 

@@ -14,5 +14,5 @@ policyDefaults:
 policies:
   - name: policy-image-registries
     manifests:
-      - path: images.yaml
+      - path: manifests/images.yaml
 

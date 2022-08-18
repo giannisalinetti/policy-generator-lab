@@ -14,8 +14,8 @@ policyDefaults:
 policies:
   - name: config-data
     manifests:
-      - path: configmap.yaml
+      - path: manifests/configmap.yaml
   - name: config-data2
     manifests:
-      - path: configmap2.yaml
+      - path: manifests/configmap2.yaml
 
