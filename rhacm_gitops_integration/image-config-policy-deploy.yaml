@@ -1,0 +1,54 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: images-config-policy-deploy
+  namespace: policies
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - images-config-policy-deploy
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: images-config-policy-deploy-subscription-1
+  namespace: policies
+  labels:
+    app: images-config-policy-deploy
+spec:
+  channel: ggithubcom-giannisalinetti-policy-generator-lab-ns/ggithubcom-giannisalinetti-policy-generator-lab
+  placement:
+    placementRef:
+      name: images-config-policy-deploy-placement-1
+      kind: PlacementRule
+posthooks: {}
+prehooks: {}
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: images-config-policy-deploy-placement-1
+  namespace: policies
+  labels:
+    app: images-config-policy-deploy
+spec:
+  clusterSelector:
+    matchLabels:
+      local-cluster: 'true'
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: ggithubcom-giannisalinetti-policy-generator-lab
+  namespace: ggithubcom-giannisalinetti-policy-generator-lab-ns
+spec:
+  pathname: https://github.com/giannisalinetti/policy-generator-lab.git
+  type: Git
+
