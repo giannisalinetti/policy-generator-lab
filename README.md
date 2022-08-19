@@ -41,4 +41,7 @@ $ kubectl apply -f rhacm_gitops_integration/image-config-policy-deploy.yaml
 
 The policy is enforced on all cluster defined inside the generated PlacementRule.
 
+## Futher Readings
+- https://cloud.redhat.com/blog/generating-governance-policies-using-kustomize-and-gitops
+- https://github.com/stolostron/policy-generator-plugin
 
