@@ -1,0 +1,18 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: ns-policies
+placementBindingDefaults:
+  name: binding-ns-policy
+policyDefaults:
+  namespace: policies
+  remediationAction: enforce
+  placement:
+    name: placement-ns-policy
+    clusterSelectors:
+      vendor: "OpenShift"
+policies:
+  - name: ns-policy
+    manifests:
+      - path: namespace.yaml
+
