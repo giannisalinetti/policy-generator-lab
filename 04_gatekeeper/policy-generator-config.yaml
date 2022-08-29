@@ -1,0 +1,18 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: gatekeeper
+placementBindingDefaults:
+  name: binding-gatekeeper
+policyDefaults:
+  namespace: policies
+  remediationAction: enforce
+  placement:
+    name: placement-gatekeeper
+    clusterSelectors:
+      local-cluster: "true"
+policies:
+  - name: policy-gatekeeper
+    manifests:
+      - path: manifests/gatekeeper.yaml
+
